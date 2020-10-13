@@ -60,4 +60,8 @@ public class MainPage {
         Assert.assertEquals(searchField.getLocation().getX(), autoCompl.getLocation().getX());
         Assert.assertEquals(autoCompl.getLocation().getY(), searchField.getLocation().getY() + searchField.getSize().getHeight());
     }
+
+    public void clickSearch() {
+        $(".input-group").$(byAttribute("type", "submit")).click();
+    }
 }

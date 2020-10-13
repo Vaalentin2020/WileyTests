@@ -6,14 +6,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import wiley.TestBase;
 import wiley.pages.MainPage;
+import wiley.pages.SearchingPage;
 
 public class MainTest extends TestBase {
 
     MainPage mPage;
+    SearchingPage sPage;
 
     @BeforeClass
     void initialize() {
         mPage = new MainPage();
+        sPage = new SearchingPage();
     }
 
     @Test(description = "Открытие главной страницы")
@@ -33,8 +36,12 @@ public class MainTest extends TestBase {
         mPage.assertAutocompletePosition("Java");
     }
 
-    @Test(description = "Проверяем функцию работы поиска", dependsOnMethods = "checkSearchingPosition")
+    @Test(description = "Проверяем функцию работы поиска, что результатов на странице 10, что все они отображаются",
+          dependsOnMethods = "checkSearchingPosition")
     public void searchFuncCheck() {
-
+        mPage.clickSearch();
+        sPage.assertResultCount(10);
+        sPage.assertTitleSubstring("Java");
+        sPage.assertAddToCartBtn();
     }
 }
