@@ -28,6 +28,10 @@ public class SearchingPage {
         return $(".products-list").$$(".product-title");
     }
 
+    /**
+     * Првоеряет, наличие кнопки "Add to cart" в зависимости от версии книги и кнопки "View on Wiley Online Library"
+     * Падает на книгах, которых нет в наличии, так как у них нет кнопки "Add to cart"
+     */
     public void assertAddToCartBtn() {
         ElementsCollection table = $$("#productTableBodySection");
 
@@ -40,8 +44,7 @@ public class SearchingPage {
                 versionBooks.get(i).click();
 
                 if (versionBooks.get(i).getText().equals("PRINT") || versionBooks.get(i).getText().equals("E-BOOK")) {
-                    $x("//div[contains(@id, '[0-9]+_Print')]");
-                    el.$(byText("Add to cart")).shouldBe(Condition.visible);
+                    el.$$(byText("Add to cart")).get(i).shouldBe(Condition.visible);
                 } else if (versionBooks.get(i).getText().equals("O-BOOK")) {
                     el.$(byText("View on Wiley Online Library")).shouldBe(Condition.visible);
                 }
