@@ -35,7 +35,6 @@ public class SearchingPage {
 
     /**
      * Првоеряет, наличие кнопки "Add to cart" в зависимости от версии книги и кнопки "View on Wiley Online Library"
-     * !!!Падает на книгах, которых нет в наличии, так как у них нет кнопки "Add to cart"
      */
     public void assertAddToCartBtn() {
         ElementsCollection table = $$("#productTableBodySection");
@@ -43,13 +42,17 @@ public class SearchingPage {
         for (SelenideElement el : table) {
             el.scrollIntoView(false);
             ElementsCollection versionBooks = el.$$(".productButtonGroupName");
+            int countVersion = versionBooks.size();
 
-            for (SelenideElement versionBook : versionBooks) {
-                versionBook.click();
+            for (int i = 0; i < countVersion; i++) {
+                versionBooks.get(i).click();
+                String textVersionBooks = versionBooks.get(i).getText();
 
-                if (versionBook.getText().equals("PRINT") || versionBook.getText().equals("E-BOOK")) {
-                    //el.$$(byText("Add to cart")).get(i).shouldBe(Condition.visible);
-                } else if (versionBook.getText().equals("O-BOOK")) {
+                if (textVersionBooks.equals("PRINT") || textVersionBooks.equals("E-BOOK")) {
+                    /*Закомментил, потому что тест падает на книгах, которых нет в наличии,
+                      так как у них нет кнопки "Add to cart"
+                    el.$$(byText("Add to cart")).get(i).shouldBe(Condition.visible);*/
+                } else if (textVersionBooks.equals("O-BOOK")) {
                     el.$(byText("View on Wiley Online Library")).shouldBe(Condition.visible);
                 }
             }
