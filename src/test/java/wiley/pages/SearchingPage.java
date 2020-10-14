@@ -11,11 +11,17 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SearchingPage {
 
+    /**
+     * Проверка кол-ва результатов поиска на странице
+     */
     public void assertResultCount(int count) {
         ElementsCollection srchResult = getTitles();
         srchResult.shouldBe(CollectionCondition.size(count));
     }
 
+    /**
+     * Проверка содержания подстроки в заголовках результатов поиска
+     */
     public void assertTitleSubstring(String substring) {
         ElementsCollection srchResult = getTitles();
         srchResult.shouldBe(CollectionCondition.allMatch("", el -> el.getText().contains(substring)));

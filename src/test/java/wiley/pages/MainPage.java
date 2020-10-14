@@ -20,17 +20,23 @@ public class MainPage {
         $("#main-header-navbar").$(byText("WHO WE SERVE")).click();
     }
 
+    /**
+     * Проверить количество элементов внутри Who we serve
+     */
     public void assertServiceCount(int count) {
         $("#Level1NavNode1").$$("li[class$=\"dropdown-item \"]")
                 .shouldBe(CollectionCondition.size(count));
     }
 
+    /**
+     * Проверяем что внутри "Who we serve" есть нужные пункты
+     */
     public void assertTitles() {
         ElementsCollection whoWeServe = $("#Level1NavNode1").$$("li[class$=\"dropdown-item \"]");
 
         List<String> titles = new ArrayList<>();
 
-        // Students в разметке не отображается
+        // Students в разметке не отображается из-за чего тест падает
         //titles.add("Students");
         titles.add("Instructors");
         titles.add("Book Authors");
@@ -41,6 +47,7 @@ public class MainPage {
         titles.add("Corporations");
         titles.add("Societies");
         titles.add("Journal Editors");
+        titles.add("Bookstores");
         titles.add("Government");
 
         for (String title : titles) {
@@ -48,6 +55,9 @@ public class MainPage {
         }
     }
 
+    /**
+     * Проверка, что область автокомплита расположена строго под строкой поиска
+     */
     public void assertAutocompletePosition(String value) {
         SelenideElement searchField = $(byName("pq"));
         searchField.setValue(value);
