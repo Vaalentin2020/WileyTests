@@ -7,10 +7,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.testng.Assert;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
