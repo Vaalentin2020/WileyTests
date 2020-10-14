@@ -68,10 +68,18 @@ public class MainPage {
         autoCompl.getLocation();
 
         Assert.assertEquals(searchField.getLocation().getX(), autoCompl.getLocation().getX());
-        Assert.assertEquals(autoCompl.getLocation().getY(), searchField.getLocation().getY() + searchField.getSize().getHeight());
+        Assert.assertEquals(autoCompl.getLocation().getY(), searchField.getLocation().getY() + searchField
+                .getSize().getHeight());
     }
 
     public void clickSearch() {
-        $(".input-group").$(byAttribute("type", "submit")).click();
+        $(".input-group").$(byAttribute("type", "submit"))
+                .click();
+    }
+
+    public void openEducation() {
+        $("#main-header-navbar").$(byText("SUBJECTS")).hover().parent()
+                .$(byText("Education"))
+                .click();
     }
 }
