@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "suggestions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "term": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "term"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "term": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "term"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "term": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "term"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "term": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "term"
+          ]
+        }
+      ]
+    },
+    "products": {
+      "type": "array",
+      "items": {}
+    },
+    "pages": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "boost": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "boost",
+            "title",
+            "url",
+            "content"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "boost": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "boost",
+            "title",
+            "url",
+            "content"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "boost": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "boost",
+            "title",
+            "url",
+            "content"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "boost": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "boost",
+            "title",
+            "url",
+            "content"
+          ]
+        }
+      ]
+    },
+    "showSeeAllProducts": {
+      "type": "boolean"
+    },
+    "showSeeAllPages": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "suggestions",
+    "products",
+    "pages",
+    "showSeeAllProducts",
+    "showSeeAllPages"
+  ]
+}
